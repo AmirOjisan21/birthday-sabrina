@@ -3,11 +3,13 @@
   --burgundy-dark: #3f0914;
   --burgundy-light: #9e233d;
   --cream: #fbf7f4;
-  --tape-color: rgba(238, 226, 210, 0.85);
+  --kraft: #e8d8c8;
+  --paper-line: rgba(107, 20, 38, 0.08);
+  --tape-color: rgba(238, 226, 210, 0.88);
   --text-main: #2d2422;
-  --text-muted: #7d7270;
-  --shadow-polaroid: 0 16px 36px rgba(66, 11, 22, 0.14), 0 6px 12px rgba(0, 0, 0, 0.08);
-  --shadow-card: 0 12px 30px rgba(66, 11, 22, 0.07);
+  --text-muted: #6e5e5b;
+  --shadow-polaroid: 0 16px 36px rgba(66, 11, 22, 0.16), 0 6px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 14px 34px rgba(66, 11, 22, 0.1), 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -22,6 +24,9 @@ body {
   color: var(--text-main);
   overflow-x: hidden;
   transition: background-color 0.8s ease;
+  /* Faint kraft paper noise overlay */
+  background-image: radial-gradient(rgba(107, 20, 38, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
 /* Floating Music Controller */
@@ -38,15 +43,15 @@ body {
   border-radius: 50px;
   box-shadow: var(--shadow-card);
   cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--burgundy);
   transition: transform 0.3s ease;
-  border: 1px solid rgba(107, 20, 38, 0.12);
+  border: 1.5px solid rgba(107, 20, 38, 0.15);
 }
 
 .music-pill:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .music-pill.playing .music-icon {
@@ -71,10 +76,10 @@ body {
 }
 
 .nav-dot {
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: rgba(107, 20, 38, 0.25);
+  background: rgba(107, 20, 38, 0.28);
   cursor: pointer;
   position: relative;
   transition: all 0.3s ease;
@@ -82,18 +87,20 @@ body {
 
 .nav-dot.active {
   background: var(--burgundy);
-  transform: scale(1.5);
+  transform: scale(1.6);
+  box-shadow: 0 0 10px rgba(107, 20, 38, 0.4);
 }
 
 .nav-dot .tooltip {
   position: absolute;
-  right: 24px;
+  right: 26px;
   top: 50%;
   transform: translateY(-50%);
   background: var(--burgundy);
   color: white;
-  font-size: 0.75rem;
-  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 12px;
   border-radius: 6px;
   white-space: nowrap;
   pointer-events: none;
@@ -121,14 +128,15 @@ body {
 
 .master-polaroid {
   pointer-events: auto;
-  width: min(340px, 80vw);
-  background: white;
+  width: min(350px, 82vw);
+  background: #ffffff;
   padding: 14px 14px 28px 14px;
   box-shadow: var(--shadow-polaroid);
-  border-radius: 4px;
+  border-radius: 3px;
   transform: rotate(-3deg);
   position: relative;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .polaroid-tape {
@@ -136,12 +144,14 @@ body {
   top: -12px;
   left: 50%;
   transform: translateX(-50%) rotate(2deg);
-  width: 90px;
-  height: 26px;
-  background-color: var(--tape-color);
+  width: 100px;
+  height: 28px;
+  background: repeating-linear-gradient(45deg, rgba(238, 226, 210, 0.9), rgba(238, 226, 210, 0.9) 10px, rgba(228, 212, 192, 0.9) 10px, rgba(228, 212, 192, 0.9) 20px);
   backdrop-filter: blur(2px);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
   z-index: 10;
+  border-left: 2px dashed rgba(180, 160, 140, 0.4);
+  border-right: 2px dashed rgba(180, 160, 140, 0.4);
 }
 
 .polaroid-inner {
@@ -150,7 +160,8 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 2px;
-  background: #eee;
+  background: #f0ebe6;
+  border: 1px solid rgba(0,0,0,0.08);
 }
 
 .photo-layer {
@@ -177,26 +188,26 @@ body {
 
 .polaroid-caption {
   font-family: 'Caveat', cursive;
-  font-size: 1.45rem;
-  color: #3b2c2a;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #2e1d1b;
   text-align: center;
   margin-top: 14px;
 }
 
-/* Background Abstract Doodles (Bold & Visible Cyclemon Aesthetic) */
+/* Background Abstract Doodles */
 .bg-doodle {
   position: absolute;
   pointer-events: none;
   z-index: 10;
-  opacity: 0.85; /* Increased opacity from 0.45 */
+  opacity: 0.85;
   filter: drop-shadow(0 2px 8px rgba(107, 20, 38, 0.12));
 }
 
-/* Chapter 0: Big Golden & Burgundy Sparkles */
 .doodle-sparkle-1 { 
   top: 14%; 
   left: 8%; 
-  font-size: 3.2rem; /* Much larger */
+  font-size: 3.2rem; 
   color: var(--burgundy); 
   transform: rotate(-10deg);
 }
@@ -205,17 +216,16 @@ body {
   top: 22%; 
   right: 10%; 
   font-size: 2.6rem; 
-  color: #d4a373; /* Warm gold accent */
+  color: #d4a373; 
   transform: rotate(15deg);
 }
 
-/* Chapter 1: Bold Hand-Drawn Dashed Ring */
 .doodle-ring { 
   top: 10%; 
   right: 7%; 
   width: 180px; 
   height: 180px; 
-  border: 4px dashed rgba(107, 20, 38, 0.45); /* Thicker & darker stroke */
+  border: 4px dashed rgba(107, 20, 38, 0.45); 
   border-radius: 50%; 
   animation: slowRotate 24s linear infinite;
 }
@@ -225,7 +235,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* Chapter 4: Soft Burgundy Watercolor Cloud */
 .doodle-blob {
   bottom: 8%;
   left: 4%;
@@ -236,12 +245,11 @@ body {
   filter: blur(8px);
 }
 
-/* Chapter 5: Floating Hearts Cluster */
 .doodle-heart { 
   bottom: 14%; 
   right: 8%; 
   font-size: 3.4rem; 
-  opacity: 0.8;
+  opacity: 0.85;
   animation: gentleFloat 3s ease-in-out infinite alternate;
 }
 
@@ -249,6 +257,7 @@ body {
   0% { transform: translateY(0) rotate(-5deg); }
   100% { transform: translateY(-12px) rotate(5deg); }
 }
+
 /* Story Chapters Base */
 .story-section {
   min-height: 100vh;
@@ -268,7 +277,7 @@ body {
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  padding: 60px 24px 30px 24px;
+  padding: 40px 24px 30px 24px;
 }
 
 .hero-content {
@@ -276,23 +285,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   z-index: 60;
 }
 
 .badge {
   display: inline-block;
-  background: rgba(107, 20, 38, 0.08);
+  background: #fbf0ea;
   color: var(--burgundy);
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-size: 0.85rem;
+  border: 1px dashed var(--burgundy);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 8px rgba(107, 20, 38, 0.08);
 }
 
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
   color: var(--burgundy-dark);
   line-height: 1.15;
 }
@@ -300,12 +312,15 @@ body {
 .highlight {
   font-style: italic;
   color: var(--burgundy);
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.05);
 }
 
 .scroll-cue {
   margin-top: 0;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--burgundy);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -314,8 +329,8 @@ body {
 }
 
 .mouse-icon {
-  width: 20px;
-  height: 32px;
+  width: 22px;
+  height: 34px;
   border: 2px solid var(--burgundy);
   border-radius: 12px;
   display: flex;
@@ -341,7 +356,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: min(440px, 34vw);
-  max-width: 1280px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -353,69 +368,108 @@ body {
   z-index: 60;
 }
 
+/* Authentic Scrapbook Paper Card with Notebook Lines */
 .scrapbook-card {
-  background: white;
-  padding: 28px;
-  border-radius: 12px;
+  background: #ffffff;
+  /* Lined Notebook Paper styling */
+  background-image: repeating-linear-gradient(transparent, transparent 27px, var(--paper-line) 28px);
+  line-height: 28px;
+  padding: 30px 28px;
+  border-radius: 4px;
   box-shadow: var(--shadow-card);
   position: relative;
+  border-left: 3px solid #ffccd5; /* Soft pink journal margin */
 }
 
+/* Washi Tape with Patterns */
 .tape {
   position: absolute;
-  width: 75px;
-  height: 22px;
-  background-color: var(--tape-color);
-  backdrop-filter: blur(2px);
+  width: 85px;
+  height: 26px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(238, 226, 210, 0.9),
+    rgba(238, 226, 210, 0.9) 8px,
+    rgba(224, 206, 184, 0.9) 8px,
+    rgba(224, 206, 184, 0.9) 16px
+  );
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+  z-index: 10;
 }
-.tape.top-left { top: -8px; left: -8px; transform: rotate(-12deg); }
-.tape.top-right { top: -8px; right: -8px; transform: rotate(12deg); }
+.tape.top-left { top: -10px; left: -12px; transform: rotate(-10deg); }
+.tape.top-right { top: -10px; right: -12px; transform: rotate(10deg); }
 
 .tag {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 800;
   text-transform: uppercase;
   color: var(--burgundy);
   letter-spacing: 1.5px;
-  display: block;
-  margin-bottom: 6px;
+  display: inline-block;
+  background: #fae8eb;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 
 .scrapbook-card h2 {
   font-family: 'Playfair Display', serif;
   color: var(--burgundy-dark);
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 12px;
 }
 
 .bio-list {
   list-style: none;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 
 .bio-list li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: column;
 }
 
 .bio-list strong {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.bio-list span {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--burgundy-dark);
+}
+
+.quote-card {
+  background: #fffcf7;
+  border-left: 3px solid #d4a373;
+  padding-top: 36px;
 }
 
 .handwriting {
   font-family: 'Caveat', cursive;
-  font-size: 1.45rem;
+  font-size: 1.7rem;
+  font-weight: 700;
   color: var(--burgundy-dark);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 /* Chapter 2: Journey & Hanging Mini Polaroids */
+.map-controller-card .sub {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: var(--burgundy);
+  margin-top: 4px;
+}
+
 .visualizer-card {
   padding-top: 130px;
   position: relative;
+  background-image: none; /* Keep map preview clean */
 }
 
 .hanging-polaroids {
@@ -439,6 +493,7 @@ body {
   position: relative;
   transition: transform 0.4s ease;
   pointer-events: auto;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .hang-left { transform: rotate(-7deg); }
@@ -474,7 +529,8 @@ body {
 .mini-caption {
   display: block;
   font-family: 'Caveat', cursive;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  font-weight: 700;
   text-align: center;
   margin-top: 6px;
   color: var(--burgundy-dark);
@@ -484,19 +540,19 @@ body {
 .journey-pills {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   margin-top: 18px;
 }
 
 .journey-btn {
   background: var(--cream);
-  border: 1px solid rgba(107, 20, 38, 0.15);
-  padding: 10px 16px;
+  border: 1.5px solid rgba(107, 20, 38, 0.2);
+  padding: 12px 18px;
   border-radius: 8px;
   text-align: left;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--burgundy-dark);
   cursor: pointer;
   transition: all 0.25s ease;
@@ -506,6 +562,7 @@ body {
   background: var(--burgundy);
   color: white;
   border-color: var(--burgundy);
+  transform: translateX(4px);
 }
 
 .geo-view {
@@ -522,7 +579,7 @@ body {
 /* SVG Map */
 .svg-map-wrapper {
   width: 100%;
-  max-width: 270px;
+  max-width: 280px;
   height: 290px;
   display: flex;
   align-items: center;
@@ -530,7 +587,7 @@ body {
 }
 
 .my-map-svg { width: 100%; height: 100%; }
-.land-path { fill: #f3e9e3; stroke: #dfceca; stroke-width: 3; }
+.land-path { fill: #f5ebe6; stroke: #d9c4bc; stroke-width: 3; }
 .city-point .dot { fill: var(--burgundy); }
 .city-point .ring {
   fill: var(--burgundy);
@@ -562,22 +619,25 @@ body {
   box-shadow: 0 10px 25px rgba(0, 50, 100, 0.15);
 }
 #globeCanvas:active { cursor: grabbing; }
-.drag-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; }
+.drag-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; font-weight: 600; }
 
 .dist-stat { margin-top: 14px; }
 .km-highlight {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--burgundy);
 }
-.dist-stat p { font-size: 0.85rem; color: var(--text-muted); }
+.dist-stat p { font-family: 'Caveat', cursive; font-size: 1.25rem; font-weight: 700; color: var(--text-muted); }
 
 /* Chapter 3: Letter */
-.letter-card { line-height: 1.7; }
-.letter-card p { margin-bottom: 12px; font-size: 0.95rem; }
-.wax-seal { font-size: 1.8rem; margin-bottom: 10px; }
-.signoff { font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--burgundy); margin-top: 20px; }
+.letter-card { 
+  background: #fdfaf5;
+  border-left: 3px solid var(--burgundy);
+}
+.letter-card p { margin-bottom: 12px; font-family: 'Caveat', cursive; font-size: 1.55rem; font-weight: 700; color: #2e1d1b; }
+.wax-seal { font-size: 2rem; margin-bottom: 10px; }
+.signoff { font-family: 'Caveat', cursive; font-size: 1.75rem; color: var(--burgundy); margin-top: 20px; }
 
 /* Chapter 4: Surrounding Favorites Polaroids */
 .side-polaroids {
@@ -589,12 +649,13 @@ body {
 .scrap-polaroid {
   background: white;
   padding: 12px 12px 22px 12px;
-  border-radius: 4px;
+  border-radius: 3px;
   box-shadow: var(--shadow-polaroid);
   position: relative;
   width: 255px;
   transition: transform 0.3s ease, z-index 0.3s ease;
   pointer-events: auto;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .scrap-polaroid:hover {
@@ -618,7 +679,8 @@ body {
 
 .scrap-caption {
   font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--burgundy-dark);
   text-align: center;
   margin-top: 12px;
@@ -627,8 +689,9 @@ body {
 
 .scrap-caption span {
   font-family: 'Caveat', cursive;
-  font-size: 1.15rem;
-  color: var(--text-muted);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--burgundy);
   display: block;
   margin-top: 2px;
 }
@@ -657,12 +720,13 @@ body {
   position: absolute;
   background: white;
   padding: 10px 10px 20px 10px;
-  border-radius: 4px;
+  border-radius: 3px;
   box-shadow: var(--shadow-polaroid);
-  width: 210px;
+  width: 215px;
   pointer-events: auto;
   transition: transform 0.3s ease, z-index 0.3s ease;
   z-index: 55;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .scatter-polaroid:hover {
@@ -686,7 +750,8 @@ body {
 
 .scatter-caption {
   font-family: 'Caveat', cursive;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--burgundy-dark);
   margin-top: 10px;
   text-align: center;
@@ -706,14 +771,16 @@ body {
 
 .finale-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
   color: var(--burgundy-dark);
   margin-bottom: 10px;
 }
 
 .finale-desc {
-  font-size: 1rem;
-  color: var(--text-muted);
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--burgundy);
   margin-bottom: 24px;
 }
 
@@ -721,175 +788,25 @@ body {
   background: var(--burgundy);
   color: white;
   border: none;
-  padding: 16px 36px;
-  font-size: 1rem;
+  padding: 16px 40px;
+  font-size: 1.1rem;
   font-weight: 700;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(107, 20, 38, 0.35);
+  box-shadow: 0 12px 28px rgba(107, 20, 38, 0.38);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .love-btn:hover {
-  transform: scale(1.06);
+  transform: scale(1.08);
   background: var(--burgundy-dark);
 }
 
-/* Mobile & Tablet Responsive Engine */
-@media (max-width: 860px) {
-  .side-nav {
-    display: none;
-  }
-
-  .music-pill {
-    top: 14px;
-    right: 16px;
-    padding: 8px 14px;
-    font-size: 0.78rem;
-  }
-
-  .master-stage {
-    align-items: center;
-    justify-content: center;
-    padding-top: 0;
-    height: 100vh;
-    height: 100dvh;
-  }
-
-  .master-polaroid {
-    width: 200px;
-    padding: 8px 8px 16px 8px;
-    box-shadow: 0 10px 25px rgba(66, 11, 22, 0.18);
-  }
-
-  .polaroid-tape {
-    width: 70px;
-    height: 20px;
-    top: -10px;
-  }
-
-  .polaroid-caption {
-    font-size: 1.05rem;
-    margin-top: 6px;
-  }
-
-  .section-hero {
-    min-height: 100dvh;
-    padding-top: 70px;
-    padding-bottom: 30px;
-  }
-
-  .hero-title {
-    font-size: 1.9rem;
-  }
-
-  .section-split {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding-top: 100px;
-    padding-bottom: 80px;
-    min-height: auto;
-  }
-
-  .scrapbook-card {
-    padding: 20px 18px;
-  }
-
-  .scrapbook-card h2 {
-    font-size: 1.5rem;
-  }
-
-  .handwriting {
-    font-size: 1.25rem;
-  }
-
-  .visualizer-card {
-    padding-top: 90px;
-  }
-
-  .hanging-polaroids {
-    top: -50px;
-    padding: 0 10px;
-  }
-
-  .mini-polaroid {
-    width: 105px;
-    padding: 6px 6px 12px 6px;
-  }
-
-  .mini-caption {
-    font-size: 0.85rem;
-  }
-
-  .svg-map-wrapper {
-    height: 220px;
-  }
-
-  #globeCanvas {
-    width: 240px !important;
-    height: 240px !important;
-  }
-
-  .side-polaroids {
-    flex-direction: row;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .scrap-polaroid {
-    width: 145px;
-    padding: 6px 6px 14px 6px;
-  }
-
-  .scrap-caption {
-    font-size: 0.9rem;
-  }
-
-  .scrap-caption span {
-    font-size: 0.8rem;
-  }
-
-  .section-finale {
-    min-height: 100dvh;
-    padding-top: 120px;
-    padding-bottom: 60px;
-    justify-content: flex-start;
-  }
-
-  .scattered-gallery {
-    position: static;
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 14px;
-    padding: 20px 10px;
-    pointer-events: auto;
-    -webkit-overflow-scrolling: touch;
-    width: 100vw;
-    margin-left: -16px;
-  }
-
-  .scatter-polaroid {
-    position: static;
-    flex: 0 0 160px;
-    transform: none !important;
-    scroll-snap-align: center;
-  }
-
-  .finale-box {
-    margin-top: 20px;
-  }
-
-  .finale-title {
-    font-size: 2rem;
-  }
-}
 /* Sephora Interactive Gift Polaroid */
 .sephora-interactive {
   cursor: pointer;
 }
 
-/* Real Gift Card Screenshot Container */
 .giftcard-screenshot-frame {
   width: 100%;
   border-radius: 12px;
@@ -913,11 +830,11 @@ body {
   right: -8px;
   background: var(--burgundy);
   color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 5px 12px;
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(107, 20, 38, 0.3);
+  box-shadow: 0 4px 10px rgba(107, 20, 38, 0.35);
   animation: bounce 2s infinite;
   z-index: 20;
 }
@@ -933,8 +850,8 @@ body {
   background: #000;
   color: #fff;
   border: none;
-  padding: 8px 12px;
-  font-size: 0.8rem;
+  padding: 10px 14px;
+  font-size: 0.85rem;
   font-weight: 700;
   border-radius: 6px;
   cursor: pointer;
@@ -1009,7 +926,6 @@ body {
   background: rgba(255, 255, 255, 0.4);
 }
 
-/* Sephora Black Header */
 .sephora-header {
   background: #000000;
   color: #ffffff;
@@ -1033,7 +949,6 @@ body {
   font-weight: 600;
 }
 
-/* Voucher Content Body */
 .voucher-inner-body {
   padding: 26px 24px;
   text-align: center;
@@ -1054,22 +969,6 @@ body {
   margin-bottom: 8px;
 }
 
-.voucher-amount {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 8px;
-}
-
-.voucher-note {
-  font-family: 'Caveat', cursive;
-  font-size: 1.25rem;
-  color: var(--burgundy);
-  margin-bottom: 20px;
-}
-
-/* Code Copy Block */
 .code-box {
   background: #f8f6f4;
   border: 1.5px dashed #000;
@@ -1080,7 +979,7 @@ body {
 
 .code-label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-muted);
   letter-spacing: 1px;
@@ -1096,7 +995,7 @@ body {
   padding: 8px 12px;
   border-radius: 6px;
   font-family: monospace;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #000;
 }
@@ -1105,12 +1004,12 @@ body {
   background: #000;
   color: white;
   border: none;
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   cursor: pointer;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   transition: background 0.2s ease;
 }
 
@@ -1118,11 +1017,16 @@ body {
   background: var(--burgundy);
 }
 
-.pin-sub {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 6px;
+.pin-row {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--burgundy-dark);
+}
+
+.pin-row strong {
+  font-family: monospace;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
 }
 
 .redeem-link-btn {
@@ -1143,14 +1047,481 @@ body {
   background: var(--burgundy-dark);
 }
 
-.pin-row {
-  margin-top: 8px;
-  font-size: 0.85rem;
-  color: var(--burgundy-dark);
+/* Mobile & Tablet Responsive Engine */
+@media (max-width: 860px) {
+  .side-nav {
+    display: none;
+  }
+
+  .music-pill {
+    top: 14px;
+    right: 16px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .master-stage {
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .master-polaroid {
+    width: 205px;
+    padding: 8px 8px 16px 8px;
+    box-shadow: 0 10px 25px rgba(66, 11, 22, 0.18);
+  }
+
+  .polaroid-tape {
+    width: 70px;
+    height: 20px;
+    top: -10px;
+  }
+
+  .polaroid-caption {
+    font-size: 1.25rem;
+    margin-top: 6px;
+  }
+
+  .section-hero {
+    min-height: 100dvh;
+    padding-top: 70px;
+    padding-bottom: 30px;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .section-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    min-height: auto;
+  }
+
+  .scrapbook-card {
+    padding: 22px 20px;
+  }
+
+  .scrapbook-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .handwriting {
+    font-size: 1.45rem;
+  }
+
+  .visualizer-card {
+    padding-top: 90px;
+  }
+
+  .hanging-polaroids {
+    top: -50px;
+    padding: 0 10px;
+  }
+
+  .mini-polaroid {
+    width: 105px;
+    padding: 6px 6px 12px 6px;
+  }
+
+  .mini-caption {
+    font-size: 0.95rem;
+  }
+
+  .svg-map-wrapper {
+    height: 220px;
+  }
+
+  #globeCanvas {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  .side-polaroids {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .scrap-polaroid {
+    width: 150px;
+    padding: 6px 6px 14px 6px;
+  }
+
+  .scrap-caption {
+    font-size: 1rem;
+  }
+
+  .scrap-caption span {
+    font-size: 0.95rem;
+  }
+
+  .section-finale {
+    min-height: 100dvh;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    justify-content: flex-start;
+  }
+
+  .scattered-gallery {
+    position: static;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    padding: 20px 10px;
+    pointer-events: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100vw;
+    margin-left: -16px;
+  }
+
+  .scatter-polaroid {
+    position: static;
+    flex: 0 0 160px;
+    transform: none !important;
+    scroll-snap-align: center;
+  }
+
+  .finale-box {
+    margin-top: 20px;
+  }
+
+  .finale-title {
+    font-size: 2.1rem;
+  }
+}
+/* =========================================================
+   AUTHENTIC SCRAPBOOK STICKERS, POST-ITS & AIRMAIL STAMPS
+   ========================================================= */
+
+/* 1. Vintage Airmail Postmark */
+.airmail-badge {
+  position: absolute;
+  top: 10px;
+  right: -60px; /* Sits charmingly in the empty space beside the title */
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dashed var(--burgundy);
+  padding: 6px 14px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  transform: rotate(8deg);
+  box-shadow: 0 4px 12px rgba(107, 20, 38, 0.08);
+  pointer-events: none;
 }
 
-.pin-row strong {
-  font-family: monospace;
-  font-size: 1rem;
+.airmail-badge span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--burgundy);
+}
+
+.airmail-badge small {
+  font-size: 0.65rem;
+  color: var(--text-muted);
   letter-spacing: 1px;
+}
+
+/* 2. Realistic Pastel Sticky Notes (Post-its) */
+.sticky-note {
+  width: 140px;
+  max-width: 140px;
+  min-height: 120px;
+  height: auto;
+  align-self: flex-start; /* Prevents flex parent from stretching it vertically */
+  padding: 14px 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  z-index: 25;
+  transition: transform 0.3s ease;
+  position: absolute;
+}
+
+.sticky-note:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+}
+
+.note-pink {
+  background: #ffe3e8;
+  color: var(--burgundy-dark);
+  top: -48px;        /* Shifted up higher */
+  right: -25px;      /* Positioned to the top-right corner */
+  transform: rotate(10deg);
+  border-bottom-right-radius: 18px 4px;
+}
+
+.note-pink::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 35%;
+  width: 40px;
+  height: 16px;
+  background: rgba(238, 226, 210, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.note-yellow {
+  background: #fff3c4;
+  color: #5c4400;
+  border-bottom-left-radius: 18px 4px;
+}
+
+.note-yellow::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 35%;
+  width: 40px;
+  height: 16px;
+  background: rgba(238, 226, 210, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Position on the Tulips Polaroid */
+.fav-note {
+  top: -38px;
+  left: -28px;
+  transform: rotate(-10deg);
+}
+/* 3. Vintage Postage Stamp */
+.vintage-stamp {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 50px;
+  height: 60px;
+  background: #ffffff;
+  border: 2px dashed #caa29a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transform: rotate(6deg);
+  pointer-events: none;
+}
+
+.stamp-icon {
+  font-size: 1.4rem;
+}
+
+.stamp-price {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--burgundy);
+  letter-spacing: 0.5px;
+}
+
+/* 4. Desktop Gap Adjustment to Eliminate Awkward Void */
+@media (min-width: 1200px) {
+  .section-split {
+    gap: 380px; /* Brings cards slightly closer so they frame the center photo tightly */
+  }
+}
+
+/* Mobile Adjustments for Sticky Notes */
+@media (max-width: 860px) {
+  .sticky-note {
+    position: static;
+    width: 100%;
+    margin-bottom: 14px;
+    transform: none !important;
+  }
+  .vintage-stamp {
+    display: none;
+  }
+}
+/* Washi Tape Scrap Scribbles (Fixed compact dimensions) */
+.tape-scrap {
+  position: absolute;
+  width: auto;
+  max-width: 220px;
+  height: auto;
+  min-height: unset;
+  align-self: flex-start; /* Stops flex containers from stretching them into tall strips */
+  padding: 6px 14px;
+  background: #f4ece1;
+  border-left: 2px dashed rgba(107, 20, 38, 0.25);
+  border-right: 2px dashed rgba(107, 20, 38, 0.25);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--burgundy);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Washi tape overlay strip for the scrap */
+.tape-scrap::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 25%;
+  width: 40px;
+  height: 14px;
+  background: rgba(238, 226, 210, 0.7);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+/* Position adjustments for each specific chapter */
+.scrap-hero-left {
+  bottom: 12%;
+  left: 8%;
+  transform: rotate(-6deg);
+}
+
+.scrap-hero-right {
+  bottom: 12%;
+  right: 8%;
+  transform: rotate(6deg);
+}
+
+.scrap-chapter-1 {
+  top: -26px;
+  left: 20px;
+  transform: rotate(-4deg);
+  z-index: 25;
+}
+
+.scrap-chapter-2 {
+  top: -26px;
+  left: 20px;
+  transform: rotate(-4deg);
+  z-index: 25;
+}
+
+.scrap-finale-left {
+  top: 8%;
+  left: 6%;
+  transform: rotate(-6deg);
+}
+
+.scrap-finale-right {
+  top: 8%;
+  right: 6%;
+  transform: rotate(6deg);
+}
+/* Origami Floating Paper Elements */
+/* Authentic Faceted Origami Paper Elements */
+.origami-element {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  pointer-events: none;
+  z-index: 15;
+  filter: drop-shadow(0 6px 12px rgba(107, 20, 38, 0.16));
+  animation: origamiFloat 5s ease-in-out infinite alternate;
+}
+
+.origami-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Specific Sizing & Gentle Float Delays */
+.origami-tulip {
+  width: 52px;
+  height: 52px;
+}
+
+.origami-butterfly {
+  width: 50px;
+  height: 50px;
+  animation-delay: 0.8s;
+}
+
+.origami-star {
+  width: 44px;
+  height: 44px;
+  animation-delay: 2s;
+}
+
+/* Chapter Anchor Positions */
+.pos-hero-tulip {
+  top: 18%;
+  left: 7%;
+  transform: rotate(-12deg);
+}
+
+.pos-letter-butterfly {
+  top: 16%;
+  right: 8%;
+  transform: rotate(10deg);
+}
+
+.pos-origin-star {
+  top: 14%;
+  right: 12%;
+  transform: rotate(-8deg);
+}
+
+/* Floating animation with slight paper tilt */
+@keyframes origamiFloat {
+  0% {
+    transform: translateY(0px) rotate(-8deg);
+  }
+  100% {
+    transform: translateY(-14px) rotate(6deg);
+  }
+}
+
+.crane-left {
+  top: 14%;
+  left: 6%;
+}
+
+.heart-right {
+  bottom: 12%;
+  right: 7%;
+  width: 48px;
+  height: 48px;
+  animation-delay: 1.5s;
+}
+
+@media (max-width: 860px) {
+  .origami-element {
+    display: none; /* Keeps phone screen clean */
+  }
+}
+
+.origami-pos-left {
+  top: 35%;
+  left: 5%;
+  transform: rotate(-15deg);
+}
+
+.origami-pos-right {
+  bottom: 25%;
+  right: 5%;
+  transform: rotate(12deg);
+}
+
+.paperclip {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  width: 14px;
+  height: 38px;
+  border: 2.5px solid #a89f91;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.15);
+  transform: rotate(-5deg);
+  z-index: 30;
+  pointer-events: none;
 }
