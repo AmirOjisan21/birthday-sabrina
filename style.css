@@ -1465,9 +1465,9 @@ body {
 }
 
 .pos-origin-star {
-  top: 14%;
-  right: 12%;
-  transform: rotate(-8deg);
+  top: 10%;
+  right: 10%;
+  transform: rotate(-40deg);
 }
 
 /* Floating animation with slight paper tilt */
@@ -1524,4 +1524,147 @@ body {
   transform: rotate(-5deg);
   z-index: 30;
   pointer-events: none;
+}
+
+/* =========================================================
+   AUTHENTIC SCRAPBOOK COLLAGE ELEMENTS
+   ========================================================= */
+
+/* 1. Vintage Kodak 35mm Film Strip */
+.scrap-film-strip {
+  position: absolute;
+  background: #1a1818;
+  padding: 6px 12px;
+  border-radius: 2px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scrap-film-strip::before,
+.scrap-film-strip::after {
+  content: '••••••••';
+  color: #fff;
+  opacity: 0.35;
+  font-size: 0.55rem;
+  letter-spacing: 4px;
+}
+
+.film-label {
+  color: #e5a82e;
+  font-family: 'Courier New', monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* 2. Ripped Vintage Notebook Paper Scrap (Layer behind cards/polaroids) */
+.ripped-paper-backing {
+  position: absolute;
+  background: #fdfaf3;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 18px,
+    rgba(107, 20, 38, 0.07) 19px,
+    rgba(107, 20, 38, 0.07) 20px
+  );
+  border-left: 3px dashed #e2d7c7;
+  border-bottom: 2px solid #ddd1c0;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.06);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* 3. Embossed Dymo Clicker Tape (Retro Plastic Strip) */
+.dymo-label {
+  position: absolute;
+  background: #231f1e;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 3px 6px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  z-index: 30;
+}
+
+.dymo-label.burgundy {
+  background: var(--burgundy-dark);
+}
+
+/* 4. Pressed Botanical Leaf / Daisy Stamp (Vector Papercraft) */
+.pressed-leaf {
+  position: absolute;
+  width: 32px;
+  height: 48px;
+  opacity: 0.85;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.12));
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* 5. Vintage Circular Postal Cancellation Stamp */
+.postal-cancel {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 1.5px solid rgba(107, 20, 38, 0.35);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  color: rgba(107, 20, 38, 0.4);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 8;
+  transform: rotate(-15deg);
+}
+
+.postal-cancel::after {
+  content: '';
+  position: absolute;
+  width: 82%;
+  height: 82%;
+  border: 1px dashed rgba(107, 20, 38, 0.25);
+  border-radius: 50%;
+}
+/* Chapter 1: Move Dymo Label down below the card frame */
+.dymo-ch1 {
+  position: absolute;
+  bottom: -14px;
+  right: 18px;
+  transform: rotate(-2deg);
+  z-index: 30;
+}
+
+/* Chapter 3: Nudge CONFIDENTIAL tape leftward away from the 20¢ stamp */
+.dymo-confidential {
+  position: absolute;
+  top: 12px;
+  right: 85px; /* Shifted left so it doesn't touch the stamp */
+  transform: rotate(-3deg);
+  z-index: 30;
+}
+
+/* Chapter 3: Shift the ripped paper scrap to the top-right corner above the text */
+.ripped-ch3 {
+  width: 110px;
+  height: 80px;
+  position: absolute;
+  top: -24px;   /* Pushed upward */
+  right: -20px; /* Pushed outward */
+  transform: rotate(10deg);
+  z-index: 5;
 }
