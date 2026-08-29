@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, My WIFE 💍</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Audio Controller -->
+  <div class="music-pill" id="musicToggle" title="Toggle background melody">
+    <div class="music-icon" id="musicIcon">🎵</div>
+    <span id="musicText">Play Music</span>
+    <audio id="bgMusic" loop preload="none">
+      <source src="Sab.mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+  <!-- Cyclemon Side Progress Tracker -->
+  <nav class="side-nav">
+    <div class="nav-dot active" data-index="0"><span class="tooltip">Welcome</span></div>
+    <div class="nav-dot" data-index="1"><span class="tooltip">Origins</span></div>
+    <div class="nav-dot" data-index="2"><span class="tooltip">Our Journey</span></div>
+    <div class="nav-dot" data-index="3"><span class="tooltip">Love Letter</span></div>
+    <div class="nav-dot" data-index="4"><span class="tooltip">Favorites</span></div>
+    <div class="nav-dot" data-index="5"><span class="tooltip">Forever & Always</span></div>
+  </nav>
+
+  <!-- =========================================================
+       CYCLEMON PINNED STAGE (STAYS FIXED IN CENTER ON SCROLL)
+       ========================================================= -->
+  <div class="master-stage" id="masterStage">
+    <div class="master-polaroid" id="mainPolaroid">
+      <div class="polaroid-tape"></div>
+      <div class="polaroid-inner">
+        <div class="photo-layer active" id="photo-0">
+          <img src="images/wife.jpg" alt="Birthday Queen" />
+        </div>
+        <div class="photo-layer" id="photo-1">
+          <img src="images/MMG.png" alt="Birthplace" />
+        </div>
+        <div class="photo-layer" id="photo-2">
+          <img src="images/MMG.png" alt="Our Journey" />
+        </div>
+        <div class="photo-layer" id="photo-3">
+          <img src="images/MMG.png" alt="Her smile" />
+        </div>
+        <div class="photo-layer" id="photo-4">
+          <img src="images/hensem.jpg" alt="Tulips & Favorites" />
+        </div>
+        <div class="photo-layer" id="photo-5">
+          <img src="images/syng.jpg" alt="Finale rose" />
+        </div>
+      </div>
+      <p class="polaroid-caption" id="mainCaption">Happy Birthday, MY WIFE 💍</p>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SCROLLABLE STORY CHAPTERS
+       ========================================================= -->
+  <main id="story">
+
+    <!-- CHAPTER 0: HERO -->
+    <section class="story-section section-hero" id="chapter-0">
+      <div class="hero-content">
+        <span class="badge">A Gallery of you...through me</span>
+        <h1 class="hero-title">Happy Birthday, <br><span class="highlight">Ma Tulipe Bordeaux</span></h1>
+      </div>
+
+      <div class="scroll-cue">
+        <p>Scroll Sebab Aku Suroh 😚</p>
+        <div class="mouse-icon"><div class="wheel"></div></div>
+      </div>
+      <span class="bg-doodle doodle-sparkle-1">✦</span>
+      <span class="bg-doodle doodle-sparkle-2">✧</span>
+    </section>
+
+    <!-- CHAPTER 1: BIODATA SCRAPBOOK -->
+    <section class="story-section section-split" id="chapter-1">
+      <div class="split-side left-side">
+        <div class="scrapbook-card">
+          <div class="tape top-left"></div>
+          <span class="tag">Chapter 01 // One-of-a-Kind</span>
+          <h2>The Beginning of you</h2>
+          <ul class="bio-list">
+            <li><strong>Full Name:</strong> <span>Syarah Sabrina Binti Mohd Fauzi</span></li>
+            <li><strong>Date of Birth:</strong> <span>20th September 2004</span></li>
+            <li><strong>Birthplace:</strong> <span>Hospital Sultanah Aminah, JB</span></li>
+            <li><strong>Current Title:</strong> <span>MY WIFE 💍</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="split-side right-side">
+        <div class="scrapbook-card quote-card">
+          <div class="tape top-right"></div>
+          <span class="tag">Special Notice</span>
+          <p class="handwriting">
+            "On this very day, the universe decided it (and especially me) needed someone extraordinary—so you were born."
+          </p>
+        </div>
+      </div>
+      <div class="bg-doodle doodle-ring"></div>
+    </section>
+
+    <!-- CHAPTER 2: DISTANCE & JOURNEY -->
+    <section class="story-section section-split" id="chapter-2">
+      <div class="split-side left-side">
+        <div class="scrapbook-card map-controller-card">
+          <span class="tag">Chapter 02 // Journey</span>
+          <h2>Across Every Mile</h2>
+          <p class="sub">The distance never stopped me from caring.</p>
+          
+          <div class="journey-pills">
+            <button class="journey-btn active" data-view="born">1. Where We Were Born</button>
+            <button class="journey-btn" data-view="grew">2. Where We Grew Up</button>
+            <button class="journey-btn" data-view="now">3. Where We Are Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="split-side right-side">
+        <div class="scrapbook-card visualizer-card">
+          
+          <!-- Taped Hanging Mini Polaroids (Dynamic based on Tab) -->
+          <div class="hanging-polaroids">
+            <div class="mini-polaroid hang-left">
+              <div class="tape mini-tape"></div>
+              <div class="mini-img-wrap">
+                <img id="miniPhoto1" src="images/MMG.png" alt="Location 1" />
+              </div>
+              <span id="miniLabel1" class="mini-caption">Hospital Sungai Buloh</span>
+            </div>
+
+            <div class="mini-polaroid hang-right">
+              <div class="tape mini-tape"></div>
+              <div class="mini-img-wrap">
+                <img id="miniPhoto2" src="images/MMG.png" alt="Location 2" />
+              </div>
+              <span id="miniLabel2" class="mini-caption">HSA Johor Bahru</span>
+            </div>
+          </div>
+
+          <!-- View 1: Born (Realistic Peninsular Malaysia Vector) -->
+          <div class="geo-view active" id="geo-born">
+            <div class="svg-map-wrapper">
+              <svg viewBox="0 0 500 650" class="my-map-svg">
+                <!-- Peninsular Malaysia Precise SVG Coastal Path -->
+                <path class="land-path" d="M145,52 C155,50 178,56 195,78 C215,102 245,125 272,135 C305,148 335,175 348,210 C362,250 380,310 395,350 C412,395 435,450 440,495 C445,540 435,572 405,600 C375,622 342,618 318,595 C295,570 270,530 252,490 C235,450 215,395 195,345 C178,300 162,250 148,205 C132,155 125,105 145,52 Z" />
+                <!-- Penang Island -->
+                <ellipse cx="140" cy="180" rx="10" ry="15" class="land-path" />
+                
+                <!-- Sungai Buloh (Selangor) -->
+                <g class="city-point" transform="translate(225, 410)">
+                  <circle class="ring" r="14" />
+                  <circle class="dot" r="6" />
+                  <text x="-120" y="5" class="city-text">You: Sg. Buloh</text>
+                </g>
+
+                <!-- Route Arc -->
+                <path class="route-line" d="M 225,410 Q 320,510 385,585" />
+
+                <!-- Hospital Sultanah Aminah (Johor Bahru) -->
+                <g class="city-point" transform="translate(385, 585)">
+                  <circle class="ring" r="14" />
+                  <circle class="dot" r="6" />
+                  <text x="14" y="5" class="city-text">Her: HSA (JB)</text>
+                </g>
+              </svg>
+            </div>
+            <div class="dist-stat">
+              <span class="km-highlight">~340 KM</span>
+              <p>Born at opposite ends of the peninsula, destined to meet.</p>
+            </div>
+          </div>
+
+          <!-- View 2: Grew Up (Realistic Interactive Earth Canvas) -->
+          <div class="geo-view" id="geo-grew">
+            <div class="globe-wrapper">
+              <canvas id="globeCanvas" width="320" height="320"></canvas>
+              <div class="drag-hint">⇄ Drag globe horizontally</div>
+            </div>
+            <div class="dist-stat">
+              <span class="km-highlight">~15,400 KM</span>
+              <p>From Fairfax, Virginia to Johor Bahru — ocean to ocean.</p>
+            </div>
+          </div>
+
+          <!-- View 3: Universities (UPSI to UTHM) -->
+          <div class="geo-view" id="geo-now">
+            <div class="svg-map-wrapper">
+              <svg viewBox="0 0 500 650" class="my-map-svg">
+                <path class="land-path" d="M145,52 C155,50 178,56 195,78 C215,102 245,125 272,135 C305,148 335,175 348,210 C362,250 380,310 395,350 C412,395 435,450 440,495 C445,540 435,572 405,600 C375,622 342,618 318,595 C295,570 270,530 252,490 C235,450 215,395 195,345 C178,300 162,250 148,205 C132,155 125,105 145,52 Z" />
+                <ellipse cx="140" cy="180" rx="10" ry="15" class="land-path" />
+
+                <!-- UPSI (Tanjung Malim, Perak) -->
+                <g class="city-point" transform="translate(210, 375)">
+                  <circle class="ring" r="14" />
+                  <circle class="dot" r="6" />
+                  <text x="-125" y="5" class="city-text">UPSI (Tg. Malim)</text>
+                </g>
+
+                <!-- Route Arc -->
+                <path class="route-line" d="M 210,375 Q 300,470 345,535" />
+
+                <!-- UTHM (Batu Pahat, Johor) -->
+                <g class="city-point" transform="translate(345, 535)">
+                  <circle class="ring" r="14" />
+                  <circle class="dot" r="6" />
+                  <text x="14" y="5" class="city-text">UTHM (Johor)</text>
+                </g>
+              </svg>
+            </div>
+            <div class="dist-stat">
+              <span class="km-highlight">~360 KM</span>
+              <p>Just a highway ride away. Counting down you.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3: THE LOVE LETTER -->
+    <section class="story-section section-split" id="chapter-3">
+      <div class="split-side left-side">
+        <div class="scrapbook-card letter-card">
+          <div class="wax-seal">💌</div>
+          <h2>blekkkkk,</h2>
+          <p>Blekkkkkkkkkk this is for my wife only</p>
+          <p>Blekkkkkkkkkk this is for my wife only.</p>
+        </div>
+      </div>
+      <div class="split-side right-side">
+        <div class="scrapbook-card letter-card">
+          <p>Blekkkkkkkkkk this is for my wife only.</p>
+          <p class="signoff">Blekkkkkkkkkk this is for my wife only,<br><span>Blekkkkkkkkkk this is for my wife only</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4: HER FAVORITE THINGS (SURROUNDING POLAROIDS) -->
+    <section class="story-section section-split" id="chapter-4">
+      <div class="split-side left-side">
+        <div class="side-polaroids">
+          <!-- Tulips Polaroid -->
+          <div class="scrap-polaroid tilt-left">
+            <div class="tape top-left"></div>
+            <div class="scrap-img-box">
+              <img src="images/tulips.jpg" alt="Tulips" />
+            </div>
+            <p class="scrap-caption">Tulips 🌷<br><span>Imagine this is me (kalau boleh aku dah pecut Johor)</span></p>
+          </div>
+
+          <!-- Burgundy Polaroid -->
+          <div class="scrap-polaroid tilt-right">
+            <div class="tape top-right"></div>
+            <div class="color-palette-box"></div>
+            <p class="scrap-caption">Burgundy Hue<br><span>Your signature aesthetic (Aku takde idea untuk yng ni)</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="split-side right-side">
+        <div class="side-polaroids">
+          <!-- Elephants Polaroid -->
+          <div class="scrap-polaroid tilt-right">
+            <div class="tape top-right"></div>
+            <div class="scrap-img-box">
+              <img src="images/elle.png" alt="Elephant" />
+            </div>
+            <p class="scrap-caption">Elephants 🐘<br><span>THIS could be US...tapi kau nak sangat jauh 😒</span></p>
+          </div>
+
+          <!-- Sephora Polaroid -->
+          <div class="scrap-polaroid tilt-left">
+            <div class="tape top-left"></div>
+            <div class="gift-badge">Surprise Gift 🎁</div>
+            <div class="scrap-img-box">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Makeup" />
+            </div>
+           <p class="scrap-caption">Sephora Shopping Spree 💄<br><span>Tap to unlock your gift!</span></p>
+           <button class="claim-gift-btn" id="openVoucherBtn">Open Gift Card ✨</button>
+          </div>
+        </div>
+      </div>
+      <div class="bg-doodle doodle-blob"></div>
+    </section>
+
+    <!-- CHAPTER 5: FINALE & SCATTERED FUN POLAROIDS -->
+    <section class="story-section section-finale" id="chapter-5">
+      
+      <!-- 5 Random Scattered Polaroids in background -->
+      <div class="scattered-gallery">
+        <div class="scatter-polaroid pos-1">
+          <div class="tape top-left"></div>
+          <div class="scatter-img-box"><img src="images/MMG.png" alt="Candid 1" /></div>
+          <p class="scatter-caption">Pebende nangis 😂</p>
+        </div>
+
+        <div class="scatter-polaroid pos-2">
+          <div class="tape top-right"></div>
+          <div class="scatter-img-box"><img src="images/MMG.png" alt="Candid 2" /></div>
+          <p class="scatter-caption">Blekkkkkkkkkk this is for my wife only</p>
+        </div>
+
+        <div class="scatter-polaroid pos-3">
+          <div class="tape top-left"></div>
+          <div class="scatter-img-box"><img src="images/MMG.png" alt="Candid 3" /></div>
+          <p class="scatter-caption">Blekkkkkkkkkk this is for my wife only</p>
+        </div>
+
+        <div class="scatter-polaroid pos-4">
+          <div class="tape top-right"></div>
+          <div class="scatter-img-box"><img src="images/MMG.png" alt="Candid 4" /></div>
+          <p class="scatter-caption">Natural Beauty 😂</p>
+        </div>
+
+        <div class="scatter-polaroid pos-5">
+          <div class="tape top-left"></div>
+          <div class="scatter-img-box"><img src="images/MMG.png" alt="Candid 5" /></div>
+          <p class="scatter-caption">Sleeping beauty 😴</p>
+        </div>
+      </div>
+
+      <div class="finale-box">
+        <h2 class="finale-title">Here's to You, My Queen</h2>
+        <p class="finale-desc">Click below whenever you need a shower of love.</p>
+        <button class="love-btn" id="loveBtn">
+          <span>Shower with Love</span> 💖
+        </button>
+      </div>
+      <span class="bg-doodle doodle-heart">💖</span>
+    </section>
+
+  </main>
+ <!-- Sephora VIP Gift Card Modal Overlay -->
+<div class="voucher-modal-overlay" id="voucherModal">
+  <div class="voucher-modal-card">
+    <button class="modal-close-btn" id="closeVoucherBtn">✕</button>
+    
+    <!-- Sephora Black Luxury Header -->
+    <div class="sephora-header">
+      <span class="sephora-logo">S E P H O R A</span>
+      <span class="vip-tag">THE AMIR SUFI V.I.P EXPERIENCE</span>
+    </div>
+
+    <div class="voucher-inner-body">
+      <p class="voucher-for">Prepared exclusively for:</p>
+      <h3 class="voucher-name">Syarah Sabrina (MY WIFE💍)</h3>
+      
+      <!-- Real e-Gift Card Screenshot Frame -->
+      <div class="giftcard-screenshot-frame">
+        <!-- Save your cropped screenshot into images/sephora-card.png -->
+        <img src="images/sephora-card.png" alt="Sephora E-Gift Card Voucher with Barcode" id="giftCardImg" />
+      </div>
+
+      <!-- Quick Copy Box for Online Checkout -->
+      <div class="code-box">
+        <span class="code-label">ONLINE VOUCHER CODE:</span>
+        <div class="code-display">
+          <span id="voucherCodeText">SPH-XXXX-XXXX-XXXX</span>
+          <button class="copy-btn" id="copyCodeBtn">Copy Code</button>
+        </div>
+        <div class="pin-row">
+          <span>Card PIN: <strong id="voucherPinText">123456</strong></span>
+        </div>
+      </div>
+
+      <!-- Direct Action Buttons -->
+      <div class="modal-actions">
+        <a href="https://www.sephora.my" target="_blank" rel="noopener noreferrer" class="redeem-link-btn">
+          Tekan Kalau malas pegi kedai
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- GSAP & Canvas Confetti -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
